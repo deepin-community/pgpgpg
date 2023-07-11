@@ -1,0 +1,16 @@
+
+This is a list with bugs which are fixed and the dates when they were fixed:
+
+
+[3]   "pgpgpg +batch some_detach_sign.asc" don't look for ome_detach_sign'
+      but waits for data on stdin. Without +batch' gpg ask the user for the
+      file. That's wrong! pgpgpg should check if the file is a detached
+      signature and if yes, should call gpg with --verify'.
+      (Sun Jun  6 17:05:07 CEST 1999)
+
+[5]   On some systems their are some problems with getopt().
+      (Tue Jun  1 14:32:46 CEST 1999)
+
+[4]   Signing must allow -w', even if it isn't used. 
+      (Thu May 27 18:50:54 CEST 1999)
+

@@ -1,5 +1,140 @@
-template-repository (1.0-1) unstable; urgency=medium
+pgpgpg (0.13-12) unstable; urgency=medium
 
-  * Initial release
+  * QA upload.
+  * debian/control: added gnupg to Build-Depends field to avoid a FTBFS.
+  * debian/rules: added execute_before_dh_clean and execute_before_dh_auto_clean
+    targets as a workaround to avoid a FTBFS and an inadequate use of the
+    runstatedir option, not supported from the current configure file, when
+    building twice in a row.
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Sun, 17 Jul 2022 10:05:10 -0300
+
+pgpgpg (0.13-11) unstable; urgency=medium
+
+  * QA upload.
+  * Migrations:
+      - DebSrc to 3.0.
+      - debian/copyright to 1.0 format.
+      - debian/rules to new (reduced) format. Consequently:
+          ~ debian/docs: created to install some docs from the upstream.
+          ~ debian/manpages: created to install the manpage.
+          ~ Closes: #439430
+  * New upstream homepage. Consequently:
+      - debian/control: added a Homepage field.
+      - debian/copyright:
+          ~ Added a new upstream email address.
+          ~ Updated the Source field.
+      - debian/watch: updated.
+      - Closes: #809015
+  * Using new DH level format. Consequently:
+      - debian/compat: removed.
+      - debian/control: changed from 'debhelper' to 'debhelper-compat' in
+        Build-Depends field and bumped level to 13.
+  * debian/control:
+      - Added 'Rules-Requires-Root: no' to source stanza.
+      - Added Vcs-* fields.
+      - Bumped Standards-Version to 4.6.1.
+  * debian/patches/010_old-changes.patch: created to group all changes from
+    DebSrc 1.0.
+  * debian/pgpgpg.1:
+      - Manpage moved from a patch for DebSrc 1.0 to debian/.
+      - Fixed some issues in manpage.
+  * debian/postinst: using 'set -e' instead of '-e' in hashbang.
+  * debian/prerm: using 'set -e' instead of '-e' in hashbang.
+  * debian/rules: using a suitably prefixed CC to avoid a FTCBFS. Thanks to
+    Helmut Grohne <helmut@subdivi.de>. (Closes: #871456)
+  * debian/salsa-ci.yml: added to provide CI tests for Salsa.
+  * debian/tests/control: created to provide a trivial CI test.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Fri, 15 Jul 2022 15:07:19 -0300
+
+pgpgpg (0.13-10) unstable; urgency=medium
+
+  * QA upload.
+  * Set Debian QA Group as maintainer. (See #840053)
+  * debian/rules: added missing targets build-arch and build-indep.
+    (Closes: #999300)
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Tue, 05 Apr 2022 22:26:11 -0300
+
+pgpgpg (0.13-9.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Migrated DH level to 9 to avoid a FTBFS. Thanks to Logan Rosen
+      <logan@ubuntu.com>. (Closes: #800201)
+  * debian/compat: added.
+  * debian/control:
+      - Added the ${misc:Depends} variable to provide the right install
+        dependencies.
+      - Bumped Standards-Version to 3.9.6.
+  * debian/rules:
+      - Added the --no-ddebs option to dh_strip to avoid the dbgsym
+        creation. It would be a NEW binary (pgpgpg-dbgsym).
+      - Changed the binary-arch target to install files in right place.
+        Thanks to Logan Rosen <logan@ubuntu.com>. (Closes: #800201)
+      - Some actions to allow the package build twice:
+          ~ Added a condition to execute '$(MAKE) distclean'.
+          ~ Using dh_clean to clean the debian/ directory.
+  * debian/watch: added.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Sat, 26 Dec 2015 01:13:27 -0200
+
+pgpgpg (0.13-9) unstable; urgency=low
+
+  * Updated debian/rules to contain binary-indep, per policy (closes: #395732)
+
+ -- Paweł Więcek <coven@debian.org>  Wed, 14 Feb 2007 21:56:09 +0100
+
+pgpgpg (0.13-8) unstable; urgency=low
+
+  * Added Replaces: pgp (closes: #238095)
+
+ -- Pawel Wiecek <coven@debian.org>  Wed, 24 Mar 2004 20:50:30 +0100
+
+pgpgpg (0.13-7) unstable; urgency=low
+
+  * Added conflict with pgp (closes: #236195)
+
+ -- Pawel Wiecek <coven@debian.org>  Thu,  4 Mar 2004 23:07:23 +0100
+
+pgpgpg (0.13-6) unstable; urgency=low
+
+  * Reuploaded, this time with .orig.tar.gz that was missing in 0.13-5 upload
+
+ -- Pawel Wiecek <coven@debian.org>  Tue, 20 Jan 2004 09:51:34 +0100
+
+pgpgpg (0.13-5) unstable; urgency=low
+
+  * Moved from non-US to main
+
+ -- Pawel Wiecek <coven@debian.org>  Mon, 19 Jan 2004 22:31:12 +0100
+
+pgpgpg (0.13-4) unstable; urgency=low
+
+  * Added manpage from Javier Fernandez-Sanguino Pena <jfs@computer.org>
+    (closes: #222405)
+  * Removed gpg-idea from suggested packages (closes: #196895)
+  * Updated standards-version (no changes required)
+
+ -- Pawel Wiecek <coven@debian.org>  Wed, 14 Jan 2004 22:33:28 +0100
+
+pgpgpg (0.13-3) unstable; urgency=low
+
+  * New maintainer (closes: #135542)
+  * Upgraded to current standards version
+  * Fixed a typo in description (closes: #125233)
+
+ -- Pawel Wiecek <coven@debian.org>  Tue,  9 Apr 2002 11:25:36 +0200
+
+pgpgpg (0.13-2) unstable; urgency=low
+
+  * Now the package can be built even if gnupg is not installed
+    (Closes: #78303, #81806).
+
+ -- Marco d'Itri <md@linux.it>  Wed, 14 Feb 2001 22:10:18 +0100
+
+pgpgpg (0.13-1) unstable; urgency=low
+
+  * First Release.
+
+ -- Marco d'Itri <md@linux.it>  Wed,  8 Nov 2000 11:42:15 +0100

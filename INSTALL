@@ -1,0 +1,69 @@
+
+                     Compiling and Installing pgpgpg
+                   ===================================
+
+    Pgpgpg  uses  the  well  known  GNU  autoconf/automake  framework to
+provide an easy to use configure script to compile and install pgpgpg.
+    
+    In  the  section named `Prerequisites' you will find a list with all
+programms and tools needed to run and/or compile pgpgpg.
+
+    In  the  `Quick Install'  section you will find a short step by step
+procedure  to  configure,  compile  and  install  pgpgpg from the source
+distribution.
+
+    To find out more about pgpgpg specific configure options look at the
+section named `Supported Options'.
+
+    To find out all about standard features provided by configure please
+look  at  the  file  named INSTALL.generic. This file is provided by the 
+GNU  autoconf/automake  framework  and  discuss  all  aspects  of  using 
+configure.
+
+
+
+Prerequisites
+-------------
+    To run pgpgpg you need GnuPG (Gnu Privacy Guard). GnuPG can be found
+on http://www.gnupg.org/
+
+    To  build  and install pgpgpg you need an ANSI C compiler and a make
+tool.  Pgpgpg is developed under Linux with the Gnu C Compiler (gcc) and 
+Gnu  Make  but  normally pgpgpg should compile with all ANSI C compilers 
+and  most  make  tool  available on unix plattforms. If you encounter in
+some  trouble  on  compiling pgpgpg with a specific compiler please feel
+free to drop me a mail.
+
+
+
+Quick Install
+-------------
+    Make  sure  that your current working directory is equal to the root
+directoy of the pgpgpg source distribution and then perform these steps:
+
+    1.) Run  configure  to  determine  all  plattform specific issues by
+        typing "./configure".
+
+    2.) Type "make" to compile pgpgpg.
+
+    3.) To install pgpgpg just type "make install".
+
+The resulting binary is called `pgpgpg' and will be by default installed
+in /usr/local/bin/pgpgpg.
+
+
+
+Supported Options
+-----------------
+    --enable-debug
+    
+            With  this option you can request debugging message printing
+        during pgpgpg execution. This is only usefull for bug hunting or
+        if you would like participate on pgpgpg developing.
+
+    --with-gpg-path=GPG_PATH
+        
+            GPG_PATH  is  a  path to the gpg programm executable. If you
+        omit  this  option,  configure tries to find gpg in your current
+        $PATH environment.
+

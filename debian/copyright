@@ -1,9 +1,17 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: template-repository
-Source: https://github.com/deepin-community/template-repository
+Upstream-Name: pgpgpg
+Source: https://mroth.net/pgpgpg/index.html
 
 Files: *
-Copyright: 2023 Tsic404 <liuheng@deepin.org>
+Copyright: 1999 Michael Roth <mail@mroth.net, mroth@gnupg.org>
+License: GPL-2+
+
+Files: debian/*
+Copyright: 2000-2001 Marco d'Itri <md@linux.it>
+           2002-2007 Pawel Wiecek <coven@debian.org>
+           2015-2022 Joao Eriberto Mota Filho <eriberto@debian.org>
+License: GPL-2+
+
 License: GPL-2+
  This package is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -17,6 +25,6 @@ License: GPL-2+
  .
  You should have received a copy of the GNU General Public License
  along with this program. If not, see <https://www.gnu.org/licenses/>
- .
+Comment:
  On Debian systems, the complete text of the GNU General
  Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".

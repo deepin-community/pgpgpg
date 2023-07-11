@@ -1,0 +1,76 @@
+
+Sun Jun  6 17:47:26 CEST 1999
+
+    * Released version 0.13
+
+Sun Jun  5 15:22:15 CEST 1999
+
+    * pgpopts.c: pgpopts_build_argv() documentation enhanced and guessing
+      the type of armored data on decryption added.
+    * Makefile.am: Added guessarmortype.[ch]
+    * guessarmortype.[ch]: New. Function to guess the type of armored data.
+
+Fri Jun  4 14:06:46 CEST 1999
+
+    * pgpopts.c: Typos fixed. Old #if 0 / #endif sections removed. Creating
+      binary detached signatures results in a .sig file. Use newer
+      --recipient and --encrypt-to options.
+
+Thu Jun  3 12:28:52 CEST 1999
+
+    * main.c: PGP diagnostic messages send to stderr instead of stdout
+
+Thu Jun  3 01:35:04 CEST 1999
+
+    * pgpopts.c: Checking detached signatures enhanced.
+    * main.c: Some basic return codes support and basic PGP like diagnostic
+      messages added.
+    * configure.in: Checks for ln -s and install added
+
+Wed Jun  2 20:53:46 CEST 1999
+
+    * AUTHORS: added for GNU compliance
+    * configure.in: switched to automake-1.4 and autoconf-2.13
+    * includes.h: strcasecmp() and strncasecmp() for OS/2
+
+Thu May 27 23:30:47 CEST 1999
+
+    * THANKS: started a list with people who help in pgpgpg development
+    * mygetopt.[ch]: mygetopt() is a getopt() like function
+    * pgpopts.c: Now uses own mygetopt() function to omit some problems
+      on some systems.
+
+Wed May 26 17:17:13 CEST 1999
+
+    * argvfactory.c, defaultkey.c, main.c, pgpopts.c: Added documentation
+      to functions.
+
+Thu May 20 03:02:54 CEST 1999
+
+    * pgpopts.h, pgpopts.c: Support for +pubring and +secring added
+    * LICENSE: Added for global pgpgpg copyright notice
+    * INSTALL, INSTALL.generic: Moved generic installation instructions to
+      INSTALL.generic and wrote INSTALL
+    * configure.in: New option --with-gpg-path added
+
+Sat Apr 24 19:49:36 CEST 1999
+
+    * defaultkey.c: some spelling and cosmetic changes
+    * ChangeLog: Timezone in entries corrected.
+
+Mon Mar  1 21:34:55 CET 1999
+
+    * VERSION: Released 0.11
+    * configure.in, includes.h: Check for include file fcntl.h
+    * pgpopts.c: -kd, -ke, -ks, -krs and -kr support completed;
+      -kv, -kvv, -kvc, -kvvc works now correctly
+    * NEWS: Format changed
+
+Sat Feb 27 17:32:14 CET 1999  Michael Roth <mroth@nessie.de>
+
+    * ChangeLog: new
+    * Makfile.am: added defaultkey.c to pgpgpg_SOURCES
+    * pgpopts.c: Support for +encrypttoself added
+    * defaultkey.[ch]: new. Function to get the default private key
+      from the default gnupg keyring
+

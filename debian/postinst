@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+
+update-alternatives --install /usr/bin/pgp pgp /usr/bin/pgpgpg 20
+
+#DEBHELPER#
+
