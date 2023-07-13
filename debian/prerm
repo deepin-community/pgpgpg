@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+
+update-alternatives --remove pgp /usr/bin/pgpgpg
+
+#DEBHELPER#
+

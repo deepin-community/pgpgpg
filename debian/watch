@@ -1,0 +1,2 @@
+version=4
+https://mroth.net/pgpgpg/index.html pgpgpg/pgpgpg-(\d\S+)\.tar\.(?:bz2|gz|xz)

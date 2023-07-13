@@ -1,0 +1,32 @@
+
+Changes in version 0.13
+-----------------------
+
+    * Checking detached signatures enhanced
+
+    * Compiles under OS/2 + EMX
+
+    * Switched to automake-1.4 and autoconf-2.13
+
+
+Changes in version 0.12
+-----------------------
+
+    * option parsing enhanced
+
+    * +pubring and +secring supported
+
+
+Changes in version 0.11
+-----------------------
+
+    * +encrypttoself supported
+
+    * All -k commands should work now correctly
+
+
+Changes in version 0.10
+-----------------------
+
+    * This is the first public release of `pgpgpg'
+

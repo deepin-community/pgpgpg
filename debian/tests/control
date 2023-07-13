@@ -1,0 +1,1 @@
+Test-Command: pgpgpg -kv 2>&1 | egrep [a-z]

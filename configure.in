@@ -1,0 +1,109 @@
+dnl Process this file with autoconf to produce a configure script.
+AC_PREREQ(2.13)
+AC_INIT(pgpopts.c)
+AM_INIT_AUTOMAKE(pgpgpg, `cat $srcdir/VERSION`)
+AM_MAINTAINER_MODE
+AM_CONFIG_HEADER(config.h)
+
+
+dnl Checks for programs.
+AC_PROG_CC
+AC_PROG_INSTALL
+AC_PROG_LN_S
+
+
+dnl Extension of executable programs.
+AC_EXEEXT
+
+
+dnl determine the path to the gpg binary
+AC_MSG_CHECKING([whether path to gpg is given])
+AC_ARG_WITH(gpg-path, [  --with-gpg-path=PATH    Path to gpg (Gnu Privacy Guard) programm],
+[
+    AC_MSG_RESULT("$withval")
+    if test "$withval" == yes; then
+        echo '****'
+        echo '**** You must supply a valid path when using "--with-gpg-path"!'
+        echo '****'
+        exit 1
+    fi
+    
+    if test "$withval" == no; then
+        echo '****'
+        echo '**** Using "--without-gpg-path" or "--with-gpg-path=no" is forbidden!'
+        echo '**** Omit this option if you would like that configure should search'
+        echo '**** gpg in your current $PATH environment automatically.'
+        echo '****'
+        exit 1
+    fi
+    
+    if test `echo "$withval" | cut -b1` != "/"; then
+        echo '****'
+        echo '**** You must supply an absolute path when using "--with-gpg-path"!'
+        echo '****'
+        exit 1
+    fi
+    
+    if test ! -x "$withval"; then
+        echo '****'
+        echo '**** Can'"'"'t execute programm supplied by "--with-gpg-path"!'
+        echo '****'
+        exit 1
+    fi
+    
+    path_to_gpg="$withval"
+],[
+    AC_MSG_RESULT(no)
+    AC_PATH_PROG(path_to_gpg, gpg, no)
+    if test "$path_to_gpg" == no; then
+        echo '****'
+        echo '**** Can'"'"'t find gpg (Gnu Privacy Guard) in your current $PATH'
+        echo '**** environment! You need the Gnu Privacy Guard to run this software!'
+        echo '**** If your gpg isn'"'"'t installed in your standard $PATH environment'
+        echo '**** you can tell configure the path of gpg with the "--with-gpg-path"'
+        echo '**** option.'
+        echo '****'
+        exit 1
+    fi
+])
+AC_DEFINE_UNQUOTED(GPG_PATH, "$path_to_gpg")
+
+
+
+dnl Checks for libraries.
+
+
+
+dnl Checks for header files.
+AC_HEADER_STDC
+AC_HEADER_SYS_WAIT
+AC_CHECK_HEADERS(fcntl.h unistd.h)
+
+
+
+dnl Checks for typedefs, structures, and compiler characteristics.
+AC_C_CONST
+AC_TYPE_PID_T
+AC_TYPE_SIZE_T
+
+
+
+dnl Checks for library functions.
+AC_CHECK_FUNCS(strdup strspn strcspn strcasecmp strncasecmp)
+
+
+
+dnl Checks for options
+AC_MSG_CHECKING([whether debugging is requested])
+AC_ARG_ENABLE(debug, [  --enable-debug          Enable debug messages (default=off)], 
+[
+    AC_MSG_RESULT(yes)
+],[
+    AC_MSG_RESULT(no)
+    AC_DEFINE(NDEBUG)
+])
+
+
+
+dnl Generate output files
+AC_OUTPUT(Makefile)

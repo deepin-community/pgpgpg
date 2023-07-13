@@ -1,0 +1,13 @@
+
+This is a list of known bugs or missing features in `pgpgpg'. If you find
+furthermore bugs please contact me at <mroth@gnupg.org>.
+Because I don't like and know perl, I'm interested in bug reports about
+perl scripts which don't work with gnupg.
+
+[6]   Not assigned
+
+[2]   return values from gpg are not translated. Currently pgpgpg just
+      returns '0' even if their was a problem on gpg
+
+[1]   no documentation
+

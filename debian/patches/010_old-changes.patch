@@ -1,0 +1,26 @@
+Description: old changes from DebSrc 1.0
+Author: Joao Eriberto Mota Filho <eriberto@debian.org>
+Last-Update: 2022-07-15
+Index: pgpgpg/configure
+===================================================================
+--- pgpgpg.orig/configure
++++ pgpgpg/configure
+@@ -1244,7 +1244,8 @@ if test "${with_gpg_path+set}" = set; th
+         exit 1
+     fi
+     
+-    if test ! -x "$withval"; then
++#    if test ! -x "$withval"; then
++     if false; then
+         echo '****'
+         echo '**** Can'"'"'t execute programm supplied by "--with-gpg-path"!'
+         echo '****'
+@@ -1281,7 +1282,7 @@ else
+     fi
+   done
+   IFS="$ac_save_ifs"
+-  test -z "$ac_cv_path_path_to_gpg" && ac_cv_path_path_to_gpg="no"
++#  test -z "$ac_cv_path_path_to_gpg" && ac_cv_path_path_to_gpg="no"
+   ;;
+ esac
+ fi

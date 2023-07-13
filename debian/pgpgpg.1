@@ -1,0 +1,123 @@
+.TH PGP 1 "PGPGPG Version 0.13"
+.\" NAME should be all caps, SECTION should be 1-8, maybe w/ subsection
+.\" other parms are allowed: see man(7), man(1)
+.SH NAME
+pgpgpg \- wrapper around Gnu Privacy Guard that takes Pretty Good Privacy 
+command line options
+.SH SYNOPSIS
+.B pgpgpg \fR[\fIoptions\fR] \fIpgpfile
+.PP
+.B pgpgpg \-e \fR[\fIoptions\fR] \fIfile user\fR .\|.\|.
+.PP
+.SH DESCRIPTION
+
+.B PGPGPG
+is a wrapper that allows calls to 
+.B GnuPG 
+(Gnu Privacy Guard) using the command line options of .PGP
+(Pretty Good Privacy). \fBPGP\fR and \fBGnuPG\fR are encryption programs
+with high security encryption engines.  However,  \fBPGP\fR is available
+without a fee but is not really free software.  \fBGnuPG\fR  on  the  
+other  hand  is  really free software and has additionally features but 
+with a different command line syntax than PGP.
+     
+The  goal  of \fBpgpgpg\fR is to plug in a command line syntax in front of
+\fBGnuPG\fR equal to \fBPGP\fR 2.6.
+
+.SH OPTIONS
+The following options are supported by \fBpgpgpg\fR notice that long
+options do not use the usual GNU syntax (--) but, instead are of the
+form \fB+option[=value]\fR.
+.PP
+.IP "-e"
+Encrypt a plaintext file.
+.IP "-d, -p"
+Decrypt a plaintext file.
+.IP "-s"
+Sign a plaintext file.
+.br
+.B        pgpgpg -s file [-u userid]
+.IP "-sb" 
+Create a separate signature certificate (a \fB.sig\fR file) for a given
+file.
+.br
+.B        pgpgpg -sb file [-u userid]
+.IP "-c" 
+Use conventional cryptography when encrypting.
+.IP "-o"
+Output to the file specified. Should only be used for encryption,
+decryption and signature operations (not for key management).
+.IP "-a, +armor"
+ASCII armor the output file.
+.IP "-u, +myname"
+Select the userid to use for some operations.
+.IP "-kg"
+Generate a unique public/secret pair.
+.IP "-ka"
+Add a public or secret key to your key ring.
+.br
+.B        pgpgpg -ka keyfile [keyring]
+.IP "-kx"
+Extract a copy from your public or secret keyring.
+.br
+.B        pgpgpg -kx[a] userid keyfile [keyring]
+.IP "-kv"
+View the contents of your keyring.
+.br
+.B        pgpgpg -kv[v] [userid] [keyring]
+.IP "-kvc"
+View a key fingerprint.
+.br
+.B        pgpgpg -kvc [userid] [keyring]
+.IP "-kr"
+Remove a key from your keyring.
+.br
+.B        pgpgpg -kr userid  [keyring]
+.IP "-kd"
+If acting on your secret key, permanently revoke a key and issue 
+a compromise certificate.
+If acting on a public key, disable or reenable a key.
+.br
+.B        pgpgpg -kd userid 
+.IP "-ke"
+Edit trust parameters for a public key or edit the
+pass phrase or add a userid to a secret key.
+.br
+.B        pgpgpg -ke userid [keyring]
+.IP "-kc"
+View the contents and check the certifying signatures of your public key ring.
+.br
+.B        pgpgpg -kc [userid] [keyring]
+.IP "-ks"
+Sign and certify someone's public key.
+.br
+.B        pgpgpg -ks userid [-u userid] [keyring]
+
+.PP
+The following options are ignored or unsupported: 
+\fB++armorlines\fR, \fB+autosign\fR, \fB+bakring\fR, 
+\fB+interactive\fR, \fB+keepbinary\fR, \fB+language\fR,
+\fB+legal_kludge\fR, \fB+nomanual\fR, \fB+pager\fR, \fB+randseed\fR,
+\fB+tmp\fR and \fB+tzfix\fR.
+     
+.SH BUGS
+.B PGPGPG
+does not currently provide an online help (\fB-h\fR or \fB-?\fR)
+and will not show a summary of commands, as PGP does, when typing:
+.br
+.B        pgp -k
+
+The following options are not documented (yet):
+\fB+batchmode\fR, \fB+cert_depth\fR, \fB+charset\fR, \fB+encrypttoself\fR, 
+\fB+force\fR, \fB+clearsig\fR, \fB+comment\fR, \fB+completes_needed\fR, 
+\fB+compress\fR, \fB+marginals_needed\fR, \fB+pubring\fR, \fB+secring\fR,
+\fB+textmode\fR and \fB+verbose\fR.
+
+.SH AUTHORS
+
+\fBPGP\fR was originally written by Philip R. Zimmermann. 
+\fBPGPGPG\fR was written by Michael Roth.
+
+This manpage was written by Javier Fernandez-Sanguino for the Debian
+distribution (but may be used by others) by glancing at \fBPGP\fR's
+manpage and the source code from \fBPGPGPG\fR (pgpopts.c)

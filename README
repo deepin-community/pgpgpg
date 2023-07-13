@@ -1,0 +1,43 @@
+
+                         pgpgpg - Version 0.13
+                       =========================
+
+    Pgpgpg  is  a  wrapper arround Gnu Privacy Guard which takes PGP 2.6
+command  line  options,  translate them and then call GnuPG (Gnu Privacy 
+Guard) to perform the desired action.
+
+    PGP and GnuPG are encryption programms with high security encryption
+engines.  However,  PGP is available without a fee but is not realy free
+software.  GnuPG  on  the  other  hand  is  realy free software and have
+additionally features but have a different command line syntax then PGP.
+
+    The  goal  of pgpgpg is to plug in a command line syntax in front of 
+GnuPG equal to PGP 2.6.
+
+    Pgpgpg  is  free  software  and  protected by the Gnu General Public
+License. Pgpgpg is written by Michael Roth <mroth@gnupg.org>.
+
+    To  run pgpgpg you need GnuPG (The GNU Privacy Guard). Find out more
+about GnuPG on http://www.gnupg.org/
+
+
+Documentation
+-------------
+    However, until now this README is the only documentation. But if you
+familiar with PGP 2.6, using pgpgpg should be straight forward. For news
+and updates look at http://www.nessie.de/mroth/pgpgpg/
+
+
+Installation
+------------
+    You will find detailed instructions about how to compile and install
+pgpgpg in the file named INSTALL.
+
+
+Testing and Bug-Hunting
+-----------------------
+    If  you  have  problems  using pgpgpg you could try to run configure
+with  the  "--enable-debug"  option and rebuild pgpgpg. With this option
+their will be some hints on stderr which could help you and me.
+
+
